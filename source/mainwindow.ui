@@ -81,6 +81,8 @@
     </property>
     <addaction name="action_About"/>
     <addaction name="separator"/>
+    <addaction name="action_Settings"/>
+    <addaction name="separator"/>
     <addaction name="action_Exit"/>
    </widget>
    <addaction name="menu_File"/>
@@ -94,6 +96,11 @@
   <action name="action_Exit">
    <property name="text">
     <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="action_Settings">
+   <property name="text">
+    <string>&amp;Settings</string>
    </property>
   </action>
  </widget>

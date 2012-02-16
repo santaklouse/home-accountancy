@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Feb 13 20:17:48 2012
+** Created: Thu Feb 16 18:14:33 2012
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -32,6 +32,7 @@ class Ui_MainWindow
 public:
     QAction *action_About;
     QAction *action_Exit;
+    QAction *action_Settings;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -59,6 +60,8 @@ public:
         action_About->setObjectName(QString::fromUtf8("action_About"));
         action_Exit = new QAction(MainWindow);
         action_Exit->setObjectName(QString::fromUtf8("action_Exit"));
+        action_Settings = new QAction(MainWindow);
+        action_Settings->setObjectName(QString::fromUtf8("action_Settings"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         centralWidget->setAutoFillBackground(true);
@@ -106,6 +109,8 @@ public:
         menuBar->addAction(menu_File->menuAction());
         menu_File->addAction(action_About);
         menu_File->addSeparator();
+        menu_File->addAction(action_Settings);
+        menu_File->addSeparator();
         menu_File->addAction(action_Exit);
 
         retranslateUi(MainWindow);
@@ -118,6 +123,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
         action_About->setText(QApplication::translate("MainWindow", "&About", 0, QApplication::UnicodeUTF8));
         action_Exit->setText(QApplication::translate("MainWindow", "&Exit", 0, QApplication::UnicodeUTF8));
+        action_Settings->setText(QApplication::translate("MainWindow", "&Settings", 0, QApplication::UnicodeUTF8));
         getData->setText(QApplication::translate("MainWindow", "Get Data", 0, QApplication::UnicodeUTF8));
         saveButton->setText(QApplication::translate("MainWindow", "Save Data", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("MainWindow", "Add Row", 0, QApplication::UnicodeUTF8));

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu Feb 16 13:40:20 2012
+** Created: Thu Feb 16 18:59:01 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,13 +35,14 @@ static const uint qt_meta_data_MainWindow[] = {
       20,   11,   11,   11, 0x08,
       30,   11,   11,   11, 0x08,
       43,   11,   11,   11, 0x08,
+      58,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0about()\0add_row()\0"
-    "saveToFile()\0loadFromFile()\0"
+    "saveToFile()\0loadFromFile()\0showSettings()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -77,9 +78,10 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 1: add_row(); break;
         case 2: saveToFile(); break;
         case 3: loadFromFile(); break;
+        case 4: showSettings(); break;
         default: ;
         }
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

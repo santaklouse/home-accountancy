@@ -22,6 +22,7 @@ private slots:
     void add_row();
     void saveToFile();
     void loadFromFile();
+    void showSettings();
 
 protected:
     virtual void resizeEvent(QResizeEvent *event);

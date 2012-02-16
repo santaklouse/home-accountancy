@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "QDebug"
-//#include "3rd_party/qtjsonsettings/json.h"
+#include "settingsdialog.h"
+#include "ui_settingsdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -37,8 +38,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(saveToFile()));
     connect(ui->getData, SIGNAL(clicked()), this, SLOT(loadFromFile()));
 
-    MainWindow::loadTable();
 
+    connect(ui->action_Settings, SIGNAL(triggered()), this, SLOT(showSettings()));
+    MainWindow::loadTable();
 
     //get column name (index: 0)
     //qDebug() << table->horizontalHeaderItem(0)->text();
@@ -49,6 +51,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::showSettings()
+{
+    settingsDialog *dialog = new settingsDialog;
+    dialog->setWindowFlags(Qt::Dialog
+                           | Qt::CustomizeWindowHint
+                           | Qt::WindowTitleHint
+                           | Qt::WindowCloseButtonHint
+                           | Qt::WindowSystemMenuHint
+    );
+    dialog->setFixedSize(dialog->width(), dialog->height());
+    dialog->show();
+}
 
 void MainWindow::add_row()
 {
@@ -261,10 +275,10 @@ void MainWindow::saveToFile()
     if(file.open(QIODevice::WriteOnly))
     {
         file.write(MainWindow::getJsonTable().toUtf8());
-        QMessageBox::information(
-           this,
-           tr("Success"),
-           tr("<h2>Table saved successfull"));
+//        QMessageBox::information(
+//           this,
+//           tr("Success"),
+//           tr("<h2>Table saved successfull"));
         return;
     }
     QMessageBox::warning(
