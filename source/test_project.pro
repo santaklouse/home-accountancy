@@ -6,6 +6,21 @@
 
 QT       += core gui
 
+#----------------------------
+# include JSON library
+#----------------------------
+#JsonReader reader;
+#    reader.parse(jsonString);
+#    QVariant v = reader.result();
+
+#    JsonWriter writer;
+#    writer.stringify(v);
+#    QString json = writer.result();
+#----------------------------
+
+include(./3rd_party/qtjsonsettings/qtjsonsettings.pri)
+
+#----------------------------
 TARGET = test_project
 TEMPLATE = app
 
