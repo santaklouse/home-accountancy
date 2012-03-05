@@ -1,7 +1,7 @@
 ﻿Build project:
 
-  chmod +x build.sh
-  ./build.sh
+  chmod +x build
+  ./build
 
 Run:
   ./bin/test_project
