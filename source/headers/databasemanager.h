@@ -1,11 +1,12 @@
-#ifndef DATABASEMANAGER_H
+﻿#ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
 #include <QObject>
-#include "extras/dbmanagerinterface.h"
+#include "dbmanagerinterface.h"
 #include "QDir"
 #include "QtCore"
 #include <QMessageBox>
+
 class DataBaseManager : public QObject
 {
     Q_OBJECT

@@ -44,5 +44,4 @@ HEADERS  += ./headers/mainwindow.h \
 
 FORMS    += ./ui/mainwindow.ui \
     ./ui/settingsdialog.ui \
-    ./ui/form.ui
 

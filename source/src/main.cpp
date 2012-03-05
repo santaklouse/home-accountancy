@@ -4,16 +4,8 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-
-//////////////////////////////
-    app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
-//////////////////////////////
-
-
     QTranslator myTranslator;
-
     myTranslator.load("lang/untitled_" + QLocale::system().name());
-
     app.installTranslator(&myTranslator);
 
     MainWindow w;

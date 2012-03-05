@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+//    DataBaseManager dbman;
+//    DataBaseManager *dbman = new DataBaseManager();
+
     //configure menu->about
     ui->action_About->setStatusTip(tr("Info about program"));
     connect(ui->action_About, SIGNAL(triggered()), this, SLOT(about()));
@@ -47,13 +50,11 @@ MainWindow::MainWindow(QWidget *parent) :
     //qDebug() << ui->tableWidget->horizontalHeaderItem(0)->text();
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::showSettings()
-{
+void MainWindow::showSettings() {
     settingsDialog *dialog = new settingsDialog;
     dialog->setWindowFlags(Qt::Dialog
                            | Qt::CustomizeWindowHint
@@ -65,8 +66,7 @@ void MainWindow::showSettings()
     dialog->show();
 }
 
-void MainWindow::add_row()
-{
+void MainWindow::add_row() {
     QString total_rows_count = QString::number(ui->tableWidget->rowCount());
     QString columnLabels = "", rowLabels = "";
 
@@ -118,16 +118,14 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
      }
  }
 
- void MainWindow::comingSoonDialog()
- {
+ void MainWindow::comingSoonDialog() {
      QMessageBox::about(
         this,
         tr("Coming soon"),
         tr("<h2>Coming soon"));
  }
 
- void MainWindow::loadTable()
- {
+ void MainWindow::loadTable() {
      QString fileName = "data/test.dbo";
      QFile file(fileName);
 
@@ -145,8 +143,7 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
      MainWindow::buildTable(fileContent);
  }
 
- void MainWindow::buildTable(QString jsonContent)
- {
+ void MainWindow::buildTable(QString jsonContent) {
     QTableWidget *table = ui->tableWidget;
     JsonReader reader;
     QVariantMap result;
@@ -171,10 +168,7 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     QVariant columns = result.find("columns").value();
     int colCount = columns.toList().count();
     table->setColumnCount(colCount);
-    int i = 0;
 
-
-    ////////////////////////////
     /**
         1, Hide the header horizontalHeaderItem
         2, Display horizontalHeaderItem one first line 0
@@ -183,19 +177,15 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 
         4, insert flag editable item->setFlags ( Qt::ItemIsSelectable | Qt::ItemIsEnabled | editable );
 
-
         all other line row go + 1
     *
     * Use QTableWidget::horizontalHeader() and the signal from the QHeaderView.
     */
-    ////////////////////////////
 
     foreach (QVariant label, columns.toList())
     {
-//        qDebug() << label.toString();
         columnLabels += label.toString() + ",";
         table->setHorizontalHeaderLabels(columnLabels.split(","));
-        table->horizontalHeaderItem(i++)->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable);
     }
     int rowsCount = rows.toList().count();
 
@@ -218,11 +208,9 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
 
 
     table->setVerticalHeaderLabels(rowsLabels.split(","));
-
  }
 
- void MainWindow::test_table()
- {
+ void MainWindow::test_table() {
      QTableWidget *table = ui->tableWidget;
 
      table->setRowCount(1);
@@ -248,11 +236,8 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
      table->setVerticalHeaderLabels(rowLabels.split(","));
  }
 
- QString MainWindow::getJsonTable()
- {
+ QString MainWindow::getJsonTable() {
     QString jsonEncoded = "{}";
-    //getting data from table & serialize to JSON
-    //must be here
     JsonWriter writer;
     QVariantMap table_map;
     QVariantList columns;
@@ -272,7 +257,6 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
             else
                 values.insert(column, table->item(row, column)->text());
 
-//            values.insert(column, table->item(row, column)->text());
             if (columns.length() < table->columnCount() )
                 columns.insert(columns.length(), table->horizontalHeaderItem(column)->text());
         }
@@ -288,8 +272,7 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     return writer.result();
  }
 
-void MainWindow::saveToFile()
-{
+void MainWindow::saveToFile() {
 //    MainWindow::comingSoonDialog(); //temporary coming soon dialog
     QString fileName = "data/test.dbo";
 
@@ -298,10 +281,6 @@ void MainWindow::saveToFile()
     if(file.open(QIODevice::WriteOnly))
     {
         file.write(MainWindow::getJsonTable().toUtf8());
-//        QMessageBox::information(
-//           this,
-//           tr("Success"),
-//           tr("<h2>Table saved successfull"));
         return;
     }
     QMessageBox::warning(
@@ -310,7 +289,6 @@ void MainWindow::saveToFile()
        tr("<h2>Error in save table"));
 }
 
- void MainWindow::loadFromFile()
- {
+ void MainWindow::loadFromFile() {
      MainWindow::loadTable();
  }

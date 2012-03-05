@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtGui>
 #include "3rd_party/qtjsonsettings/json.h"
+#include "databasemanager.h"
 
 namespace Ui {
     class MainWindow;
@@ -16,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    //DataBaseManager *dbman;
 
 private slots:
     void about();
