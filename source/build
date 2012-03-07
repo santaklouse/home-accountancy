@@ -1,6 +1,11 @@
 ﻿#!/bin/bash
-rm Makefile
-rm ./obj/*.*
+
+if [  -f Makefile ]; then
+  rm Makefile
+fi
+if [ -d ./obj/ ]; then 
+  rm -R ./obj/*
+fi
 qmake
 make
 cd ./bin

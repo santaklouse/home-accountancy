@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
-//    DataBaseManager dbman;
+
 //    DataBaseManager *dbman = new DataBaseManager();
 
     //configure menu->about

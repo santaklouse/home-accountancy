@@ -32,16 +32,20 @@ unix{
     UI_DIR = ./obj/
 }
 
+INCLUDEPATH += $$PWD/headers/
+DEPENDPATH += $$PWD/headers/
+
 TRANSLATIONS += ./lang/untitled_ru.ts \
                 ./lang/untitled_en.ts
 
 SOURCES += ./src/main.cpp\
         ./src/mainwindow.cpp \
-    ./src/settingsdialog.cpp
+    ./src/settingsdialog.cpp \
+    src/databasemanager.cpp
 
 HEADERS  += ./headers/mainwindow.h \
-    ./headers/settingsdialog.h
+    ./headers/settingsdialog.h \
+    headers/databasemanager.h
 
 FORMS    += ./ui/mainwindow.ui \
     ./ui/settingsdialog.ui \
-
