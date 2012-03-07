@@ -126,7 +126,7 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
  }
 
  void MainWindow::loadTable() {
-     QString fileName = "data/test.dbo";
+     QString fileName = QDir::toNativeSeparators("data/test.dbo");
      QFile file(fileName);
 
      if (!file.open(QIODevice::ReadOnly)) {
@@ -249,7 +249,6 @@ void MainWindow::resizeEvent(QResizeEvent *event) {
     {
         QVariantList values;
         QVariantMap row_data;
-
         for (int column = 0; column < table->columnCount(); column++)
         {
             if (! table->item(row, column))
